@@ -4,15 +4,6 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# CRITICAL FIX: The Agno library throws an error if OPENAI_API_KEY is missing,
-# even when using other providers like Perplexity.
-# We explicitly set it here to allow the code to run.
-# This does NOT send data to OpenAI; it uses the base_url defined below.
-if os.getenv("PERPLEXITY_API_KEY"):
-    os.environ["OPENAI_API_KEY"] = os.getenv("PERPLEXITY_API_KEY")
-else:
-    print("⚠️ WARNING: PERPLEXITY_API_KEY not found in .env file!")
-
 from agno.agent import Agent
 from agno.team import Team
 from agno.models.google import Gemini
