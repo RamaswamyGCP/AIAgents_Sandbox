@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Stock Analyst</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Indian Stock Analyst</h1>
+            <p>Deep market insights for NSE/BSE stocks powered by AI</p>
+        </header>
+
+        <main>
+            <div class="search-box">
+                <input type="text" id="companyInput" placeholder="Enter company ticker (e.g., RELIANCE, TCS, HDFCBANK)"
+                    autocomplete="off">
+                <button id="analyzeBtn">
+                    <span class="btn-text">Analyze</span>
+                    <div class="loader"></div>
+                </button>
+            </div>
+
+            <div id="resultArea" class="result-area hidden">
+                <div class="result-header">
+                    <h2>Analysis Report</h2>
+                    <button id="copyBtn" class="icon-btn" title="Copy to clipboard">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="markdownContent" class="markdown-body"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

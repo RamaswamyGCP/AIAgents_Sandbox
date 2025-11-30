@@ -1,0 +1,217 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: rgba(148, 163, 184, 0.1);
+    --glow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    background: var(--card-bg);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    font-family: inherit;
+    outline: none;
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+button#analyzeBtn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0 2rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 120px;
+}
+
+button#analyzeBtn:hover {
+    background: var(--primary-hover);
+    box-shadow: var(--glow);
+}
+
+button#analyzeBtn:disabled {
+    background: #475569;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.loader {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-text {
+    transition: opacity 0.2s;
+}
+
+.loading .btn-text {
+    opacity: 0;
+}
+
+.loading .loader {
+    display: block;
+}
+
+.result-area {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.hidden {
+    display: none;
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+}
+
+/* Markdown Styles */
+.markdown-body {
+    line-height: 1.7;
+    color: #e2e8f0;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.markdown-body p {
+    margin-bottom: 1rem;
+    color: #cbd5e1;
+}
+
+.markdown-body ul, .markdown-body ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.markdown-body li {
+    margin-bottom: 0.5rem;
+}
+
+.markdown-body strong {
+    color: #60a5fa;
+}
+
+@keyframes rotation {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
